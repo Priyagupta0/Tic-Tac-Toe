@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #7e90cb, #a777e3);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+h1 {
+  margin: 10px 0 8px;
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.message {
+  margin: 10px 0 15px;
+  min-height: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+#messageText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  backdrop-filter: blur(5px);
+}
+
+.board {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.row1,
+.row2,
+.row3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 12px 0;
+}
+
+.cell {
+  height: 90px;
+  width: 90px;
+  border: none;
+  border-radius: 15px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cell:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cell:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.cell.x {
+  color: #ff4d4d;
+  text-shadow: 2px 2px 4px rgba(255, 77, 77, 0.3);
+}
+
+.cell.o {
+  color: #4d94ff;
+  text-shadow: 2px 2px 4px rgba(77, 148, 255, 0.3);
+}
+
+.btn {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 10;
+}
+
+button {
+  margin: 0;
+  width: 160px;
+  height: 55px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #6e8efb;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: #a777e3;
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Celebration effects */
+.celebration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #f00;
+  opacity: 0;
+  animation: confetti 5s ease-in-out infinite;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .cell {
+    height: 75px;
+    width: 75px;
+    font-size: 3rem;
+  }
+
+  button {
+    width: 130px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  #messageText {
+    font-size: 1.4rem;
+    padding: 8px 16px;
+  }
+}
